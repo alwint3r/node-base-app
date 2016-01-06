@@ -22,7 +22,7 @@ const flash = require('connect-flash');
 const i18n = require('i18n');
 
 const pg = require('pg');
-const pgSession = require('connect-pg-simple')(session);
+const PgSession = require('connect-pg-simple')(session);
 
 // global
 global._ = require('lodash');
@@ -65,7 +65,7 @@ initialize.requireAll().then((result) => {
         secret: config.cookie.secret,
         autoReconnect: true,
         maxAge: new Date(Date.now() + 3600000),
-        store: new pgSession({
+        store: new PgSession({
             pg: pg,
             conString: config.postgres.connectionUri,
             pruneSessionInterval: 60 * 60,
@@ -89,7 +89,7 @@ initialize.requireAll().then((result) => {
     });
 
 }).catch(function(err) {
-    console.error(err);
+    console.error(err.stack);
 });
 
 // ups

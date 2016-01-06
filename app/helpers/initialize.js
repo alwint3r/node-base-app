@@ -4,6 +4,9 @@
 const Promise = require('bluebird');
 const buildDictionary = Promise.promisifyAll(require('sails-build-dictionary'));
 
+const initDatabase = require('./database');
+const initPassport = require('./passport');
+
 const options = [
     {
         dirname: config.appDir + '/app/services',
@@ -16,6 +19,10 @@ const options = [
     {
         dirname: config.appDir + '/app/controllers',
         global: true,
+    },
+    {
+        dirname: config.appDir + '/app/models',
+        global: false,
     },
 ];
 

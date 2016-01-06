@@ -14,8 +14,8 @@ module.exports = {
         host: 'localhost',
         port: 5432,
         database: 'baseapp',
-        user: 'app',
-        password: 'pass',
+        user: 'postgres',
+        password: '',
         get connectionUri() {
             return `postgres://${this.user}:${this.password}@${this.host}:${this.port}/${this.database}`;
         },
@@ -25,9 +25,9 @@ module.exports = {
     knex: {
         client: 'postgresql',
         connection: {
-            database: this.postgres.database,
-            user:     'username',
-            password: 'password',
+            database: 'baseapp',
+            user: 'postgres',
+            password: '',
         },
         pool: {
             min: 2,
