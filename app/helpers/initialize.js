@@ -13,15 +13,15 @@ const options = [
         global: true,
     },
     {
-        dirname: config.appDir + '/app/strategies',
-        global: false,
-    },
-    {
         dirname: config.appDir + '/app/controllers',
         global: true,
     },
     {
         dirname: config.appDir + '/app/models',
+        global: false,
+    },
+    {
+        dirname: config.appDir + '/app/helpers/strategies',
         global: false,
     },
 ];
